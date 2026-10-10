@@ -1,0 +1,7 @@
+python
+azure
+kubernetes
+docker
+terraform
+python
+azure
