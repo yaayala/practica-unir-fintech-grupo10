@@ -6,3 +6,10 @@ run:
 .PHONY: run-local
 run-local:
 	python3 main.py words.txt yes
+
+FILE ?= palabras_fernando.txt
+DUP ?= no
+
+.PHONY: run-file
+run-file:
+	python3 main.py $(FILE) $(DUP)
