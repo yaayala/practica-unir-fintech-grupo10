@@ -11,9 +11,12 @@ DEFAULT_DUPLICATES = False
 DEFAULT_ORDER = "ascending"
 
 
-def sort_list(items, ascending=True):
+def sort_list(items, ascending=True, remove_duplicates=False):
     if not isinstance(items, list):
         raise RuntimeError(f"Cannot sort items of type {type(items)}")
+
+    if remove_duplicates:
+        items = list(set(items))
 
     return sorted(items, reverse=(not ascending))
 
@@ -47,7 +50,4 @@ if __name__ == "__main__":
         print(f"File {filename} does not exist")
         word_list = ["ravenclaw", "gryffindor", "slytherin", "hufflepuff"]
 
-    if remove_duplicates:
-        word_list = remove_duplicates_from_list(word_list)
-
-    print(sort_list(word_list,ascending=ascending))
+    print(sort_list(word_list, ascending=ascending, remove_duplicates=remove_duplicates))
